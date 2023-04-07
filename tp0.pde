@@ -8,7 +8,7 @@ void setup(){
 
 void draw(){
 
-println (mouseX +"," + mouseY);
+
   image (camion, 0,0);
 
 //fondo
