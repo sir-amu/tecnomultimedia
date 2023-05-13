@@ -7,7 +7,6 @@ PFont mustica;
 int segundos = 0;
 
 int vel1 = -1, vel2 = 1;
-int posX;
 int pos1, pos2;
 int pos3;
 int pos4; 
@@ -23,14 +22,14 @@ void setup(){
    mustica = loadFont("MusticaPro-SemiBold-48.vlw");
     textFont(mustica, 16);
     
-  posX = 680;
+
   pos1 = 650;
   pos2 = 500;
   pos3 = 0;
   pos4 = 0;
   pos5 = 650;
 
-  tamTexto = 5;
+  tamTexto = 2;
 }
 
 
@@ -53,6 +52,9 @@ void draw(){
           }else if (numTren == 6 && segundos >= 48){
      numTren++;
     tren = loadImage("tren" + numTren + ".jpg");
+    numBoton++;
+boton = loadImage("boton" + numBoton + ".png");
+
                   }else if (numTren == 7 && segundos >= 48){
   }
   
@@ -64,7 +66,11 @@ void draw(){
 
 if (numTren == 7 && tamTexto <= 14) {
   tamTexto = tamTexto + 00.1;
-//    numBoton = numBoton + 1;
+ // image (boton, 240,350);
+}
+
+if (tamTexto >= 14 && segundos >= 52) {
+  image (boton, 240,350);
 }
  
 
@@ -95,8 +101,6 @@ pos5 = pos5 + vel1;
                           fill(255);
                 textSize(tamTexto);
 text(" A pesar de tener el potencial de revolucionar la forma en la que viajamos, \n presenta muchas complicaciones, tales como su costo de construcción, \n mantenimiento e infraestructura, por lo que no es una tecnología realmente \n viable en este momento. \n Todavía quedan muchos desafíos por superar. Pero quién sabe, quizás \n en un futuro cercano podrá convertirse en una opción de transporte viable a gran escala. \n  Por el momento, tendremos que conformarnos con los trenes normales.", 30, 200);
-//boton = loadImage("boton" + numBoton + ".png");
-//     image (boton, 240,350);
 }  
     
 
@@ -115,12 +119,12 @@ text(" A pesar de tener el potencial de revolucionar la forma en la que viajamos
 
 void mousePressed(){
   if((mouseButton == LEFT) && mouseX > 280 && mouseX < 350 && mouseY > 350 && mouseY < 420 && numTren <= 1){
-    numBoton = numBoton + 1;
+    numBoton++;
    boton = loadImage("boton" + numBoton + ".png");
-//    } else if ((mouseButton == LEFT) && mouseX > 240 && mouseX < 400 && mouseY > 256 && mouseY < 416 && numTren <= 7){
-//  numBoton = numBoton + 1;
-//boton = loadImage("boton" + numBoton + ".png");
-//     image (boton, 240,350);;
+} else if ((mouseButton == LEFT) && mouseX > 240 && mouseX < 400 && mouseY > 256 && mouseY < 416 && numTren <= 7){
+numBoton++;
+boton = loadImage("boton" + numBoton + ".png");
+     image (boton, 240,350);;
 }
 }
 
@@ -128,10 +132,18 @@ void mouseReleased(){
   if(mouseX > 280 && mouseX < 350 && mouseY > 350 && mouseY < 420 && numTren <= 1){
      numTren++;
    tren = loadImage("tren" + numTren + ".jpg");
-//    } else if (mouseX > 280 && mouseX < 350 && mouseY > 350 && mouseY < 420 && numTren <= 7){
-//      numTren = numTren - 5;
-//         tren = loadImage("tren" + numTren + ".jpg");
-// segundos = 0;
+} else if (mouseX > 280 && mouseX < 350 && mouseY > 350 && mouseY < 420 && numTren <= 7){
+numTren = numTren - 5;
+tren = loadImage("tren" + numTren + ".jpg");
+segundos = 0;
+  pos1 = 650;
+  pos2 = 500;
+  pos3 = 0;
+  pos4 = 0;
+  pos5 = 650;
+numBoton = 2;
+numTren = 2;
+  tamTexto = 2;
 }
 
 }
