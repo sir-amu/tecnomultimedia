@@ -124,7 +124,7 @@ void mousePressed() {
     numBoton++;
     boton = loadImage("boton" + numBoton + ".png");
 //Mantener presionado el botón Reiniciar cambia la imagen a un botón apretado
-  } else if ((mouseButton == LEFT) && mouseX > 240 && mouseX < 400 && mouseY > 256 && mouseY < 416 && numTren >= 7) {
+  } else if ((mouseButton == LEFT) && mouseX > 240 && mouseX < 400 && mouseY > 350 && mouseY < 420 && numTren >= 7) {
     numBoton++;
     boton = loadImage("boton" + numBoton + ".png");
     image (boton, 240, 350);
