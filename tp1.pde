@@ -103,7 +103,7 @@ void draw() {
   
 //Incremento tamaño del texto final
   if (numTren == 7 && tamTexto <= 14) {
-    tamTexto = tamTexto + 00.1;
+    tamTexto = tamTexto + 0.07;
   }
 
 
@@ -124,7 +124,7 @@ void mousePressed() {
     numBoton++;
     boton = loadImage("boton" + numBoton + ".png");
 //Mantener presionado el botón Reiniciar cambia la imagen a un botón apretado
-  } else if ((mouseButton == LEFT) && mouseX > 240 && mouseX < 400 && mouseY > 256 && mouseY < 416 && numTren <= 7) {
+  } else if ((mouseButton == LEFT) && mouseX > 240 && mouseX < 400 && mouseY > 256 && mouseY < 416 && numTren >= 7) {
     numBoton++;
     boton = loadImage("boton" + numBoton + ".png");
     image (boton, 240, 350);
@@ -134,11 +134,11 @@ void mousePressed() {
 
 //Soltar el botón inicia la presentación
 void mouseReleased() {
-  if (mouseX > 280 && mouseX < 350 && mouseY > 350 && mouseY < 420 && numTren <= 1) {
+  if ((mouseX > 280 && mouseX < 350) && (mouseY > 350 && mouseY < 420 && numTren <= 1)) {
     numTren++;
     tren = loadImage("tren" + numTren + ".jpg");
 //Soltar el mouse en la pantalla final reinicia la presentación
-  } else if (mouseX > 280 && mouseX < 350 && mouseY > 350 && mouseY < 420 && numTren <= 7) {
+  } else if (mouseX > 280 && mouseX < 350 && mouseY > 350 && mouseY < 420 && numTren >= 7) {
     numTren = numTren - 5;
     tren = loadImage("tren" + numTren + ".jpg");
     segundos = 0;
