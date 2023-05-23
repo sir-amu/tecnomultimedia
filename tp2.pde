@@ -15,6 +15,7 @@ colorr = 1;
 void draw() {
  //image (image,0,0);
 
+//Cambio de color acorde al int colorr
     if( colorr == 1){
     background(0, 255, 0);
  }else if (colorr == 2){
@@ -30,8 +31,8 @@ void draw() {
   println (d);
   
   
-  //rectángulos vacíos
-for(int A = 30; A < width+7; A = A + 30){
+  //Rectángulos vácios
+for(int A = 30; A < width+8; A = A + 30){
   rectMode(CENTER);
   noFill();
   rect(200, 200, tam1+d/1.5 + A, tam1+d/1.5 + A);
@@ -39,31 +40,25 @@ for(int A = 30; A < width+7; A = A + 30){
 
 
 
-  //  líneas arriba
-   for (int B = 0, C = 168; B < width; B = B + 30, C = C + 5) {
-    line(B, 0, C, 168);
-  }
+
+    for (int A = 0; A <= width; A = A + 25) {  //líneas arriba
+              line(A, 0, 200, 200);  //líneas arriba  
+    if(A==width){
+      for (int B = 0; B <= width; B = B + 25) { //líneas abajo
+          line(200, 200, B, 400);//líneas abajo
+                }
+     }
+    }
+                
+             
+
+ //               for (int B = 0; B <= width; B = B + 25) { //líneas abajo
+ //   line(200, 200, B, 400);//líneas abajo
+  //              }       
+                
+
  
- 
-   //  líneas abajo
-   for (int D = 0, E = 168; D < width; D = D + 30, E = E + 5) {
-    line(D, 400, E, 233);
-  }
- 
- 
-   //  líneas izquierda
-   for (int F = 35; F < width; F = F + 30) {
-    line(0, F, 200, 200);
-  }
-  
-  
-     //  líneas derecha
-   for (int G = 35; G < width; G = G + 30) {
-    line(400, G, 200, 200);
-  }
- 
- 
-  //Cuadro azul medio
+//  //Cuadrado del medio
   rectMode(CENTER);
  if( colorr == 1){
     fill(255, 0, 0);
@@ -75,18 +70,19 @@ for(int A = 30; A < width+7; A = A + 30){
     fill(255, 255, 255);
 }
   rect(200, 200, tam1+d/1.6, tam1+d/1.6);
-  
+
 }
 
 
 void mousePressed(){
+  //El click izquierdo cambia los colores
  if (mouseButton == LEFT) {
    colorr++;
   if(colorr == 4){
     colorr = 1;
   }
  }
- 
+ //El click derecho resetea los valores
   if (mouseButton == RIGHT) {
     colorr = 1;
     mouseX = 200;
