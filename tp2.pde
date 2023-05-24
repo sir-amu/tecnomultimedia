@@ -2,11 +2,10 @@
 //Alumno: Mena Ungaro, Alejo (92582/2)
 
 PImage tunel;
-int tam1 = 65;
 int colorr;
 
 void setup() {
-  size(800, 400);  
+  size(800, 400);
   tunel = loadImage ("tunel.jpg");
   colorr = 1;
   mouseX= 600;
@@ -27,8 +26,6 @@ void draw() {
     background(255, 255, 255);
   }
 
-
-  float d = dist(600, 200, mouseX, mouseY);
 
 
 
@@ -54,46 +51,24 @@ void draw() {
 
 
 
-  //Rectángulos vácios
-  for (int A = 30; A < width+8; A = A + 30) {
-    rectMode(CENTER);
-    noFill();
-    rect(600, 200, tam1+d/1.5 + A, tam1+d/1.5 + A); //Tamaño acorde al cuadrado del medio
-  }
+  CuadradosVacíos();
+
+  CuadradoEnElMedio();
 
 
-
-  //Cuadrado del medio
-  rectMode(CENTER);
-  if ( colorr == 1) { //Dependiendo de la variante, cambia de color
-    fill(255, 0, 0);
-  } else if (colorr == 2) {
-    fill(0, 0, 255);
-  } else if (colorr == 3) {
-    fill(255, 0, 255);
-  } else if (colorr == 4) {
-    fill(255, 255, 255);
-  }
-  rect(600, 200, tam1+d/1.6, tam1+d/1.6); //Su tamaño cambia acorde a la distancia del mouse
-
-
-
-  //Imagen referencial
-  image (tunel, 0, 0);
+  image (tunel, 0, 0); //Imagen referencial
 }
 
 
 
 void mousePressed() {
-  //El click izquierdo cambia los colores
-  if (mouseButton == LEFT) {
+  if (mouseButton == LEFT) { //El click izquierdo cambia los colores
     colorr++;
     if (colorr == 4) {
       colorr = 1;
     }
   }
-  //El click derecho resetea los valores
-  if (mouseButton == RIGHT) {
+  if (mouseButton == RIGHT) { //El click derecho resetea los valores
     colorr = 1;
     mouseX = 600;
     mouseY = 200;
