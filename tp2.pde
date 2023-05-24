@@ -1,4 +1,4 @@
-//Explicación del código: (Insertar link)
+//Explicación del código:
 //Alumno: Mena Ungaro, Alejo (92582/2)
 
 PImage tunel;
@@ -6,11 +6,13 @@ int tam1 = 65;
 int colorr;
 
 void setup() {
-
-  size(800, 400);
+  size(800, 400);  
   tunel = loadImage ("tunel.jpg");
   colorr = 1;
+  mouseX= 600;
+  mouseY= 200;
 }
+
 
 void draw() {
 
