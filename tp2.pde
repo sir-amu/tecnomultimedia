@@ -1,10 +1,9 @@
+//Explicación del código: (Insertar link)
+//Alumno: Mena Ungaro, Alejo (92582/2)
+
 PImage tunel;
 int tam1 = 65;
 int colorr;
-
-//distancia entre cada línea = 25
-//rectángulo 65x65
-//distancia rectángulos vacíos 30
 
 void setup() {
 
