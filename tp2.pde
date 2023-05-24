@@ -8,15 +8,14 @@ void setup() {
   size(800, 400);
   tunel = loadImage ("tunel.jpg");
   colorr = 1;
-  mouseX= 600;
-  mouseY= 200;
+  mouseX= 600; mouseY= 200; //Valores iniciales del mouse
 }
 
 
 void draw() {
 
-  //El fondo cambia de color acorde a la variante
-  if ( colorr == 1) {
+  
+  if ( colorr == 1) {   //El fondo cambia de color acorde a la variante
     background(0, 255, 0);
   } else if (colorr == 2) {
     background(255, 255, 0);
@@ -25,7 +24,6 @@ void draw() {
   } else if (colorr == 4) {
     background(255, 255, 255);
   }
-
 
 
 
