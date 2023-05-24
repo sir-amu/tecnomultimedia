@@ -7,7 +7,7 @@ int colorr;
 //distancia rectángulos vacíos 30
 void setup() {
 
-  size(400, 400);
+  size(800, 400);
   tunel = loadImage ("tunel.jpg");
   colorr = 1;
 }
@@ -27,31 +27,31 @@ void draw() {
   }
 
 
-  float d = dist(200, 200, mouseX, mouseY);
-  println (d);
+  float d = dist(600, 200, mouseX, mouseY);
+  println (mouseX, mouseY);
 
 
   //Rectángulos vácios
   for (int A = 30; A < width+8; A = A + 30) {
     rectMode(CENTER);
     noFill();
-    rect(200, 200, tam1+d/1.5 + A, tam1+d/1.5 + A);
+    rect(600, 200, tam1+d/1.5 + A, tam1+d/1.5 + A);
   }
 
 
 
 
-  for (int A = 0; A <= width; A = A + 25) {  //líneas arriba
-    line(A, 0, 200, 200);  //líneas arriba  
+  for (int A = 400; A <= width; A = A + 25) {  //líneas arriba
+    line(A, 0, 600, 200);  //líneas arriba
     if (A==width) {
-      for (int B = 0; B <= width; B = B + 25) { //líneas abajo
-        line(200, 200, B, 400);//líneas abajo
-        if (B==400) {
+      for (int B = 400; B <= width; B = B + 25) { //líneas abajo
+        line(600, 200, B, 400);//líneas abajo
+        if (B==width) {
           for (int C = 25; C <= 375; C = C + 25) { //líneas abajo
-            line(0, C, 200, 200);  //líneas arriba  
+            line(400, C, 600, 200);  //líneas arriba
             if (C==375) {
               for (int D = 25; D <= 375; D = D + 25) { //líneas abajo
-                line(400, D, 200, 200);  //líneas arriba
+                line(800, D, 600, 200);  //líneas arriba
               }
             }
           }
@@ -75,14 +75,13 @@ void draw() {
   } else if (colorr == 4) {
     fill(255, 255, 255);
   }
-  rect(200, 200, tam1+d/1.6, tam1+d/1.6);
+  rect(600, 200, tam1+d/1.6, tam1+d/1.6);
+
+
+
+
   
-  
-  
-  
- // image (tunel, 0,0);
-  
-  
+   image (tunel, 0,0);
 }
 
 
@@ -100,7 +99,7 @@ void mousePressed() {
   //El click derecho resetea los valores
   if (mouseButton == RIGHT) {
     colorr = 1;
-    mouseX = 200;
+    mouseX = 600;
     mouseY = 200;
   }
 }
