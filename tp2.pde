@@ -1,44 +1,61 @@
 //Explicación del código:
 //Alumno: Mena Ungaro, Alejo (92582/2)
 
-PImage tunel;
-int colorr;
+PImage Referencia;
+int VariableColor;
+int ColorFondo = 255;
+int ColorRect = 0;
+int tamaño = 65;
+boolean HizoClick = true;
+
+
 
 void setup() {
   size(800, 400);
-  tunel = loadImage ("tunel.jpg");
-  colorr = 1;
-  mouseX= 600; mouseY= 200; //Valores iniciales del mouse
+  Referencia = loadImage ("ArteReferencial.jpg");
+  VariableColor = 1;
+  mouseX= 600;
+  mouseY= 200;
 }
+
 
 
 void draw() {
 
-  
-  if ( colorr == 1) {   //El fondo cambia de color acorde a la variante
-    background(0, 255, 0);
-  } else if (colorr == 2) {
-    background(255, 255, 0);
-  } else if (colorr == 3) {
-    background(0, 255, 255);
-  } else if (colorr == 4) {
-    background(255, 255, 255);
+  pushMatrix();
+  translate(600, 200);
+  // rotate(d/4);
+
+
+
+  if ( VariableColor == 1) {   //El fondo cambia de color acorde a la variable
+    background(0, ColorFondo, 0);
+  } else if (VariableColor == 2) {
+    background(ColorFondo, ColorFondo, 0);
+  } else if (VariableColor == 3) {
+    background(0, ColorFondo, ColorFondo);
+  } else if (VariableColor == 4) {
+    background(ColorFondo, ColorFondo, ColorFondo);
   }
 
 
 
   //FOR anidados líneas
-  for (int A = 400; A <= width; A = A + 25) {  //líneas arriba
-    line(A, 0, 600, 200);
-    if (A==width) {
-      for (int B = 400; B <= width; B = B + 25) { //líneas abajo
-        line(600, 200, B, 400);
-        if (B==width) {
-          for (int C = 25; C <= 375; C = C + 25) { //líneas izquierda
-            line(400, C, 600, 200);
-            if (C==375) {
-              for (int D = 25; D <= 375; D = D + 25) { //líneas derecha
-                line(800, D, 600, 200);
+  if (HizoClick) { 
+    for (int A = -350; A <= 350; A = A + 50) {  //líneas arriba
+      strokeWeight(1);
+      stroke(0);
+      line(A, -350, 0, 0);
+      if (A==350) {
+        for (int B = -350; B <= 350; B = B + 50) { //líneas abajo
+          line(B, 350, 0, 0);
+          if (B==350) {
+            for (int C = -295; C <= 255; C = C + 50) { //líneas izquierda
+              line(-295, C, 0, 0);
+              if (C==255) {
+                for (int D = -295; D <= 295; D = D + 50) { //líneas derecha
+                  line(295, D, 0, 0);
+                }
               }
             }
           }
@@ -49,26 +66,38 @@ void draw() {
 
 
 
-  CuadradosVacíos();
+  CuadradosExteriores();
 
   CuadradoEnElMedio();
 
+  println(mouseX, mouseY);
+  popMatrix();
 
-  image (tunel, 0, 0); //Imagen referencial
+
+
+  image (Referencia, 0, 0); 
 }
 
 
 
-void mousePressed() {
-  if (mouseButton == LEFT) { //El click izquierdo cambia los colores
-    colorr++;
-    if (colorr == 4) {
-      colorr = 1;
-    }
+
+void mouseDragged() { //Alteración de los colores acorde a la distancia
+  float distancia = CalcularDistancia();
+  if (distancia < 200 && distancia >=0) {
+    ColorFondo = 255 - round(distancia/2);
+    ColorRect = 0 + round(distancia/4);
   }
-  if (mouseButton == RIGHT) { //El click derecho resetea los valores
-    colorr = 1;
+}
+
+
+
+void keyPressed() { //Apretar la "R" resetea los valores
+  if (key == 'R' || key == 'r') {
+    VariableColor = 1;
+    ColorFondo = 255;
+    ColorRect = 0;
     mouseX = 600;
     mouseY = 200;
+    HizoClick = true;
   }
 }
