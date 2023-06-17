@@ -1,13 +1,5 @@
 
 void mousePressed() {
-  if (mouseButton == LEFT) { //El click izquierdo cambia los colores
-    VariableColor++;
-    if (VariableColor == 5) {
-      VariableColor = 1;
-    }
-  }
-  ColorFondo = 255;
-  ColorRect = 0;
   HizoClick = AlternarLineasClick(); //Se actualiza la variable al interactuar con mouse
 }
 
@@ -21,9 +13,9 @@ float CalcularDistancia() {
 
 
 boolean AlternarLineasClick() {
-  if (!HizoClick && mouseButton == RIGHT) {
+  if (!HizoClick && mouseButton == CENTER) {
     return true;
-  } else if (HizoClick && mouseButton == RIGHT) {
+  } else if (HizoClick && mouseButton == CENTER) {
     return false;
   }
   return HizoClick;
