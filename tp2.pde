@@ -13,7 +13,7 @@ boolean HizoClick = true;
 Mover el mouse para interactuar con la obra.
 Cambiar colores: Apretar UP/W o DOWN/S para seleccionar los colores. Arrastrar el primer click o usar las teclas 'A' y 'D' para modificar los mismos.
 Quitar líneas: Haciendo click con la rueda del mouse, o apretando 'SHIFT'.
-Rotar la obra: Arrastrando el segundo click, o con las teclas 'A' y 'D'.
+Rotar la obra: Arrastrando el segundo click, o con las teclas LEFT/A y RIGHT/D.
 */
 
 void setup() {
