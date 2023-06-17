@@ -1,15 +1,8 @@
 
-void mousePressed() {
-  HizoClick = AlternarLineasClick(); //Se actualiza la variable al interactuar con mouse
-}
-
-
-
 float CalcularDistancia() {
   float distancia = dist(600, 200, mouseX, mouseY);
   return distancia;
 }
-
 
 
 boolean AlternarLineasClick() {
@@ -19,6 +12,12 @@ boolean AlternarLineasClick() {
     return false;
   }
   return HizoClick;
+}
+
+
+
+void mousePressed() {
+  HizoClick = AlternarLineasClick(); //Se actualiza la variable al interactuar con mouse
 }
 
 

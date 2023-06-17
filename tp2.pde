@@ -1,4 +1,4 @@
-//Explicación del código:
+//Explicación del código: https://youtu.be/pQdMLNC-0ws
 //Alumno: Mena Ungaro, Alejo (92582/2)
 
 PImage Referencia;
@@ -9,6 +9,12 @@ int tamaño = 65;
 float RotarPantalla = 0;
 boolean HizoClick = true;
 
+/* INSTRUCCIONES DE USO
+Mover el mouse para interactuar con la obra.
+Cambiar colores: Apretar UP/W o DOWN/S para seleccionar los colores. Arrastrar el primer click o usar las teclas 'A' y 'D' para modificar los mismos.
+Quitar líneas: Haciendo click con la rueda del mouse, o apretando 'SHIFT'.
+Rotar la obra: Arrastrando el segundo click, o con las teclas 'A' y 'D'.
+*/
 
 void setup() {
   size(800, 400);
@@ -21,7 +27,6 @@ void setup() {
 
 
 void draw() {
-  println("Rect: " + ColorRect + ", Fondo: " + ColorFondo);
 
   pushMatrix();
   translate(600, 200);
@@ -39,7 +44,6 @@ void draw() {
   } else if (VariableColor == 4) {
     background(ColorFondo, ColorFondo, ColorFondo);
   }
-
 
 
   //FOR anidados líneas
@@ -70,10 +74,7 @@ void draw() {
   CuadradosExteriores();
 
   CuadradoEnElMedio();
-
-  //  println(mouseX, mouseY);
   popMatrix();
-
 
   image (Referencia, 0, 0);
 }
@@ -82,7 +83,6 @@ void draw() {
 
 void mouseDragged() {
   float distancia = CalcularDistancia();
-
   if (distancia < 200 && distancia >=0 && mouseButton == LEFT) { //Alteración de los colores acorde a la distancia
     ColorFondo = 255 - round(distancia/2);
     ColorRect = 0 + round(distancia/4);
@@ -90,6 +90,7 @@ void mouseDragged() {
     rotate(distancia/132);
   }
 }
+
 
 void keyPressed() {
   if (key == 'R' || key == 'r') { //Apretar la "R" resetea los valores
