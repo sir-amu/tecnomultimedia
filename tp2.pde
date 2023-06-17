@@ -21,6 +21,7 @@ void setup() {
 
 
 void draw() {
+  println("Rect: " + ColorRect + ", Fondo: " + ColorFondo);
 
   pushMatrix();
   translate(600, 200);
@@ -70,7 +71,7 @@ void draw() {
 
   CuadradoEnElMedio();
 
-  println(mouseX, mouseY);
+  //  println(mouseX, mouseY);
   popMatrix();
 
 
@@ -115,13 +116,23 @@ void keyPressed() {
 
 
 
-  if (keyCode == SHIFT) { //Alternativa al click izquierdo para AlternarLineasClick
+  if (keyCode == SHIFT) { //Alternativa al click central para AlternarLineasClick
     HizoClick = !HizoClick;
   }
 
-  if (keyCode == LEFT || key == 'A' || key == 'a') { //Incremento y decremento de los colores predefinidos
+  if (keyCode == LEFT || key == 'A' || key == 'a') { //Alternativa al mouseDragged derecho para el rotate
     RotarPantalla += 0.1;
   } else if (keyCode == RIGHT|| key == 'D' || key == 'd') {
     RotarPantalla -= 0.1;
   }
+
+
+  if (key == 'Q' &&  ColorFondo >=130 && ColorRect <=145 || key == 'q' &&  ColorFondo >=150 && ColorRect <=150) { //Alternativa al mouseDragged izquierdo para el color
+    ColorFondo -= 10;
+    ColorRect += 20;
+  } else if (key == 'E' && ColorFondo <=255 && ColorRect >= 0 || key == 'e' && ColorFondo <=255 && ColorRect >= 0) {
+    ColorFondo += 10;
+    ColorRect -= 20;
+  }
+  
 }
